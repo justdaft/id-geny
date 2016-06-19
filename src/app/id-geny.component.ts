@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { AfterViewInit, ViewChild, ElementRef, Renderer } from '@angular/core';
 
 declare var GIXI: any;
 
@@ -10,34 +10,49 @@ declare var GIXI: any;
   styleUrls: ['id-geny.component.css']
 })
 export class IdGenyAppComponent implements AfterViewInit {
-  @ViewChild("gixie") gixie: ElementRef;
+  @ViewChild("myCanvas") myCanvas: ElementRef;
   title = 'id-geny!';
   imageData: any;
   context: CanvasRenderingContext2D;
-  constructor() {
+imageSource: any;
+  
+  constructor(public renderer: Renderer) {
 
   }
 
   ngAfterViewInit() {
-    let canvas = this.gixie.nativeElement;
-    let context = canvas.getContext('2d');
-    let source = new Image();
-    this.imageData = new GIXI(300).getImage();
-    source.setAttribute('src', this.imageData);
+
+    // let canvas = this.myCanvas.nativeElement;
+    // this.context = canvas.getContext("2d");
+    // let context = canvas.getContext('2d');
+    // let source = new Image();
+
+    this.imageData = new GIXI(50).getImage();
+    this.imageSource = this.imageData;
+    console.log('imageData', this.imageData);
+    
+    // source.setAttribute('src', this.imageData);
     //     let imageSize =300;
     //     this.imageData = new GIXI(300).getImage();
     //     console.log('imageData', this.imageData);
     // let canvas = this.myCanvas.nativeElement;
     //     this.context = canvas.getContext("2d");
-    //     // let canvas: any = this.cropcanvas.nativeElement;
+  //  let el: any = this.myCanvas.nativeElement;
+  //      var ctx = this.context;
+    // ctx.clearRect(0, 0, 400, 400);
+    // ctx.fillStyle = 'blue';
+    // ctx.fillRect(0, 0, 100, 100);
+ 
+  //  el.setAttribute('src', this.imageData);
     //     // happy drawing from here on
     //     // context.fillStyle = 'blue';
     //     // context.fillRect(10, 10, 150, 150);
-    //     this.gixie.nativeElement.setAttribute('src', this.imageData);
+  //  this.gixie.nativeElement.setAttribute('src', this.imageData);
     //     // canvas
 
 
     //     this.context. .setAttribute('src', this.imageData)
+    // this.renderer.setElementAttribute(this.gixie, 'src', this.imageData);
   }
 
 }
