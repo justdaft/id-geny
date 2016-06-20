@@ -19,9 +19,10 @@
   </div>
 </div>-->
 
-<div class="parent" >
-  <div class="child" *ngFor="let item of imgSource; let itemIndex = index">
-<img  src='{{ item.img }}' alt="" /> 
+<div class="flex-container">
+  <div class="flex-item" *ngFor="let item of imgSource">
+    <img *ngIf="item.isRevealed" src='{{ item.pattern }}' alt="" />
+     <img *ngIf="!item.isRevealed" src='{{ cover }}' alt="" />
   </div>
 </div>
 

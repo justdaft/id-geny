@@ -1,16 +1,20 @@
-.parent {
+.flex-container {
+    border: 2px;
+    border-color: black;
+    background-color: lightblue;
   display: flex;
-  height: 500px; /* Or whatever */
-  width: 500px;
+  height: 312px;
+  width: 312px;
   flex-flow: row wrap;
    justify-content: space-around;
 }
 
-.child {
-  width: 100px;  /* Or whatever */
-  height: 100px; /* Or whatever */
+.flex-item {
+  width: 50px;  
+  height: 50px; 
   margin: auto;  /* Magic! */
-
+  border: 2px;
+    border-color: black;
 }
 
 .flex-container {
