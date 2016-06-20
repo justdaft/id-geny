@@ -1,10 +1,28 @@
 <h1>
   {{title}}
 </h1>
-<div *ngFor="let item of imgSource">
-  <img  src='{{ item }}' alt=""/>
+<!--<div *ngFor="let item of imgSource;let itemIndex = index">
+  <img  src='{{ item }}' alt="" />
 
+</div>-->
+
+<!--<div [ngGrid]="{'resizeable': false, 'margins': [5, 10]}">
+    <div *ngFor="let item of imgSource" [(ngGridItem)]="box.config">
+        <div class="title"><img  src='{{ item }}' alt="" /></div>
+        <p>{{box.text}}</p>
+    </div>
+</div>-->
+
+<!--<div class="grid" [ngGrid]="{'cols': 5, 'rows': 5, 'col_width': 50, 'row_width': 50,'auto_resize': false, 'fix_to_grid': false }">
+  <div class="grid-item" [ngGridItem]="{'sizex': 1, 'sizey': 1, 'col': item.xPos, 'row': item.yPos}" *ngFor="let item of imgSource; let itemIndex = index">
+<img  src='{{ item.img }}' alt="" />idx: {{itemIndex}}, xPos: {{item.xPos}}, yPos: {{item.yPos}}
+  </div>
+</div>-->
+
+<div class="parent" >
+  <div class="child" *ngFor="let item of imgSource; let itemIndex = index">
+<img  src='{{ item.img }}' alt="" /> 
+  </div>
 </div>
- 
 
-
+<!--idx: {{itemIndex}}, xPos: {{item.xPos}}, yPos: {{item.yPos}}-->

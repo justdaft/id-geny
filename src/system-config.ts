@@ -3,10 +3,15 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+   'angular2-grid': 'vendor/angular2-grid/dist'
 };
 
 /** User packages configuration. */
 const packages: any = {
+    'angular2-grid': {
+    defaultExtension: 'js',
+    main: 'main.js'
+  }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,64 +1,56 @@
 import { Component } from '@angular/core';
-import { AfterViewInit, ViewChild, ElementRef, Renderer } from '@angular/core';
-
+import { AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import {NgGrid, NgGridItem} from 'angular2-grid';
 declare var GIXI: any;
+
+
 
 @Component({
   moduleId: module.id,
   selector: 'id-geny-app',
   templateUrl: 'id-geny.component.html',
-  styleUrls: ['id-geny.component.css']
+  styleUrls: ['id-geny.component.css'],
+  directives: [NgGrid, NgGridItem]
 })
+
 export class IdGenyAppComponent implements AfterViewInit {
   @ViewChild('myCanvas') myCanvas: ElementRef;
   title = 'id-geny!';
   imageData: any;
   context: CanvasRenderingContext2D;
   imageSource: any;
-  imgSource:  Array<any> = [];
+  imgSource: Array<any> = [];
 
-  constructor(public renderer: Renderer) {
+  public static TILE_WIDTH = 50;
+  public static TILE_HEIGHT = 50;
+  public static GRID_WIDTH = 300;
+  public static GRID_HEIGHT = 300;
+  _icons: any;
+  constructor() {
 
+  }
+
+  get icons(): number[][] {
+    return this._icons;
   }
 
   ngAfterViewInit() {
 
-    // let canvas = this.myCanvas.nativeElement;
-    // this.context = canvas.getContext("2d");
-    // let context = canvas.getContext('2d');
-    // let source = new Image();
-
-    // this.imageData = new GIXI(50).getImage();
     this.imageSource = this.imageData;
     console.log('imageData', this.imageData);
-    let xx: Array<any> = [];
+
     for (var x = 0; x < 25; x++) {
       let imgData = new GIXI(50).getImage();
-      this.imgSource.push(imgData);
+      let xx = x;
+      let tmpObj = {
+        img: imgData,
+        xPos: xx % 5,
+        yPos: Math.floor(xx / 5)
+      };
+      this.imgSource.push(tmpObj);
     }
-    console.log(xx);
-    // source.setAttribute('src', this.imageData);
-    //     let imageSize =300;
-    //     this.imageData = new GIXI(300).getImage();
-    //     console.log('imageData', this.imageData);
-    // let canvas = this.myCanvas.nativeElement;
-    //     this.context = canvas.getContext("2d");
-    //  let el: any = this.myCanvas.nativeElement;
-    //      var ctx = this.context;
-    // ctx.clearRect(0, 0, 400, 400);
-    // ctx.fillStyle = 'blue';
-    // ctx.fillRect(0, 0, 100, 100);
+    console.log(this.imgSource);
 
-    //  el.setAttribute('src', this.imageData);
-    //     // happy drawing from here on
-    //     // context.fillStyle = 'blue';
-    //     // context.fillRect(10, 10, 150, 150);
-    //  this.gixie.nativeElement.setAttribute('src', this.imageData);
-    //     // canvas
-
-
-    //     this.context. .setAttribute('src', this.imageData)
-    // this.renderer.setElementAttribute(this.gixie, 'src', this.imageData);
   }
 
 }
