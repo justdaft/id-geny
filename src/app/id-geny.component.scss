@@ -3,8 +3,8 @@
     border-color: black;
     background-color: lightblue;
   display: flex;
-  height: 312px;
-  width: 312px;
+  height: 262px;
+  width: 262px;
   flex-flow: row wrap;
    justify-content: space-around;
 }
@@ -15,7 +15,38 @@
   margin: auto;  /* Magic! */
   border: 2px;
     border-color: black;
+    cursor: pointer;
+    cursor: hand;
+
 }
+
+.example-fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.demo-grid-list {
+  width: 250px;
+
+  md-card {
+    margin: 16px 0;
+  }
+
+  p {
+    margin: 16px;
+  }
+
+  .demo-basic-list md-grid-tile {
+    background: rgba(0,0,0,0.32);
+    hover {
+    background-color: yellow;
+}
+  }
+
+}
+
+/*div:hover, p:hover, h1:hover, a:hover {
+    background-color: yellow;
+}*/
 
 .flex-container {
   /* We first create a flex layout context */

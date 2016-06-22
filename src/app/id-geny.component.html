@@ -1,6 +1,3 @@
-<h1>
-  {{title}}
-</h1>
 <!--<div *ngFor="let item of imgSource;let itemIndex = index">
   <img  src='{{ item }}' alt="" />
 
@@ -18,12 +15,52 @@
 <img  src='{{ item.img }}' alt="" />idx: {{itemIndex}}, xPos: {{item.xPos}}, yPos: {{item.yPos}}
   </div>
 </div>-->
+<md-toolbar color="primary">
+  <span>  {{title}}</span>
 
-<div class="flex-container">
-  <div class="flex-item" *ngFor="let item of imgSource">
-    <img *ngIf="item.isRevealed" src='{{ item.pattern }}' alt="" />
-     <img *ngIf="!item.isRevealed" src='{{ cover }}' alt="" />
-  </div>
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+
+  <span></span>
+</md-toolbar>
+<br>
+<md-card>
+  <md-card-content>
+    <div class="flex-container">
+      <div class="flex-item" *ngFor="let item of imgSource">
+        <img (click)="iconSelected(item)" *ngIf="item.isRevealed" src='{{ item.pattern }}' alt="" />
+        <img (click)="iconSelected(item)" *ngIf="!item.isRevealed" src='{{ cover }}' alt="" />
+      </div>
+
+    </div>
+    <br>
+    <div class="flex-container">
+      <div class="flex-item">
+        <h3>First Item</h3>
+        <img src='{{ firstItem.pattern }}' alt="" />
+      </div>
+      <br>
+      <div class="flex-item">
+        <h3>Second Item</h3>
+        <img src='{{ secondItem.pattern }}' alt="" />
+      </div>
+    </div>
+
+  </md-card-content>
+  <md-card-actions>
+    <button md-fab (click)="createIcons()">
+  New
+  </button>
+  </md-card-actions>
+</md-card>
+<div class="demo-grid-list">
+  <md-grid-list cols="4" rowHeight="50px">
+    <md-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
+      {{tile.text}}
+    </md-grid-tile>
+  </md-grid-list>
 </div>
+
+
 
 <!--idx: {{itemIndex}}, xPos: {{item.xPos}}, yPos: {{item.yPos}}-->
